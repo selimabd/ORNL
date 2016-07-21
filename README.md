@@ -1,4 +1,4 @@
-# ORNL neutronimaging
+## ORNL neutronimaging
 
 ### Algorithm 1 Sliding Window approach 
 
