@@ -15,6 +15,8 @@ def tuple_version(version):
     return tuple(int(x) for x in version.strip('<>+-=.').split('.'))
 
 def check_versions():
+    return False
+
     version_trouble=False
     numba = importlib.import_module('numba')
     numba_version = tuple_version(numba.__version__)
@@ -32,7 +34,8 @@ def check_versions():
 
 def main():
     required_modules = ['numpy', 'matplotlib', 'jupyter',
-                        'numba', 'llvmlite', 'line_profiler', 'IPython',]
+                        'scipy', 'ipywidgets', 'IPython',
+                         'xlrd', 'xlwt']
     missing_modules = []
     for mod in required_modules:
         if not onpy2:

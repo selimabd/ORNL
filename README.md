@@ -1,5 +1,11 @@
 ## ORNL neutronimaging
 
+### Set up
+
+To make sure you have all the packages necessary to run those algorithms, run the following command
+> python ./check_install.py
+
+
 ### Algorithm 1 Sliding Window approach 
 
 Input file location is in line 26 its in .XLSX (excel format)
