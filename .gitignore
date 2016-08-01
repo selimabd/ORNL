@@ -1,4 +1,5 @@
 output.xls
 .ipynb_checkpoints*
-*__pycache__*
+Algo1/__pycache__*
+Algo2/__pycache__*
 
