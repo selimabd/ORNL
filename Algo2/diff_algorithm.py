@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def calculate_diff_between_input_and_curve(x2):
+def calculate_diff_between_input_and_curve(x, y, x2, poly):
     '''
     calculate diff between input and curve
     '''
@@ -13,7 +13,7 @@ def calculate_diff_between_input_and_curve(x2):
     return ydiff
 
 
-def calculate_jumps(t, ydiff, x2):
+def calculate_jumps(t, ydiff, x2, x):
     '''
     identify max points of regions exceeding threshold
     '''
@@ -25,14 +25,14 @@ def calculate_jumps(t, ydiff, x2):
         area = 1
         max = ydiff[np.nonzero(x2 == jumps[i])[0][0]]
         maxi = i
-        while i + area < jumps.size - 1 and jumps[i + area] == x[np.nonzero(x == jumps[i])[0][0] + area]:
-            if ydiff[np.nonzero(x2 == jumps[i + area])[0][0]] > max:
+        while ((i + area) < (jumps.size - 1)) and (jumps[i + area] == x[np.nonzero(x == jumps[i])[0][0] + area]):
+            if (ydiff[np.nonzero(x2 == jumps[i + area])[0][0]]) > max:
                 max = ydiff[np.nonzero(x2 == jumps[i + area])[0][0]]
                 maxi = i + area
             area += 1
         maxjumps = np.append(maxjumps, jumps[maxi])
         i += area + 1
     print('Maximal points exceeding threshold {}: {}'.format(round(t, 5), maxjumps))
-    with open(thresholdOutput, "a") as file:
-        file.write('Maximal points exceeding threshold {}: {}\n'.format(round(t, 5), maxjumps))
+#    with open(thresholdOutput, "a") as file:
+#        file.write('Maximal points exceeding threshold {}: {}\n'.format(round(t, 5), maxjumps))
     return maxjumps
