@@ -2,7 +2,7 @@ import numpy as np
 # generate smoothed curve based on window
 
 
-def generate_smooth_curve(x, y):
+def generate_smooth_curve(x, y, window):
     x2 = x
     y2 = np.zeros(x2.size)
     tolerance = np.mean(np.diff(x2)) / 100
